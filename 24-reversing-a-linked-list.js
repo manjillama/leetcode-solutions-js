@@ -10,8 +10,19 @@
 // prev = 2 -> 1 -> null
 // curr = 3 -> 4 -> 5
 
-let reverseList = (head) => {};
+let reverseList = (head) => {
+  let currNode = head;
+  let prevNode = null;
+  while (currNode) {
+    let nextNode = currNode.next;
 
+    currNode.next = prevNode;
+    prevNode = currNode;
+    currNode = nextNode;
+  }
+
+  return prevNode;
+};
 class ListNode {
   val;
   next;
